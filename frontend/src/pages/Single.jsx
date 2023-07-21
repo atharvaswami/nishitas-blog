@@ -6,6 +6,7 @@ import axios from 'axios'
 import { AuthContext } from '../context/authContext'
 
 const Single = () => {
+  axios.defaults.withCredentials = true;
   const [post, setPost] = useState({});
 
   const location = useLocation();

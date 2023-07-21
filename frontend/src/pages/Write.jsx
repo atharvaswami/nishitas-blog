@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
 
 const Write = () => {
+    axios.defaults.withCredentials = true;
     const state = useLocation().state;
     const [value, setValue] = useState(state?.desc || "");
     const [title, setTitle] = useState(state?.title || "");

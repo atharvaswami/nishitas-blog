@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const Register = () => {
+  axios.defaults.withCredentials = true;
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [inputs, setInputs] = useState({
     userName: "",
