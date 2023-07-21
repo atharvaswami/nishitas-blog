@@ -14,6 +14,15 @@ const PORT = 8800;
 app.use(cors({ credentials: true, origin: ["https://nishitas-blog.netlify.app", "http://localhost:3000"] }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", ["https://nishitas-blog.netlify.app", "http://localhost:3000"]);
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+});
 
 // db connection
 let db;
