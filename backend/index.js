@@ -14,7 +14,7 @@ const PORT = 8800;
 app.use(
     cors({
         credentials: true,
-        origin: [`${process.env.BASE_URL}`, "http://localhost:3000"],
+        origin: [`${process.env.FRONTEND_URL}`, "http://localhost:3000"],
         exposedHeaders: ["set-cookie"]
     })
 );
