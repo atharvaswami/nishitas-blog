@@ -27,7 +27,7 @@ const Single = () => {
 
   const handleDelete = async () => {
     try {
-      const res = await axios.delete(`/posts/${postId}`, {data: {imgUrl: post.img}});
+      const res = await axios.delete(`/posts/${postId}`);
       navigate("/");
       alert(res.data);
     } catch (err) {
@@ -43,7 +43,7 @@ const Single = () => {
   return (
     <div className='single'>
       <div className="content">
-        <img src={`../upload/${post.img}`} alt="" />
+        <img src={`${post.img}`} alt="" />
         {currentUser?.role === "admin" && currentUser?._id === post.userId && <div className="edit_delete">
           <Link to={`/post/edit/${post._id}`} state={post}>
             <img src={Edit} alt="Edit" />

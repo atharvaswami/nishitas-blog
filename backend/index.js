@@ -27,21 +27,21 @@ MongoDB.connectToDB((err) => {
     db = MongoDB.getDb(databaseName);
 });
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, '../frontend/public/upload');
-    },
-    filename: function (req, file, cb) {
-      cb(null, Date.now()+file.originalname);
-    }
-})
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       cb(null, '../frontend/public/upload');
+//     },
+//     filename: function (req, file, cb) {
+//       cb(null, Date.now()+file.originalname);
+//     }
+// })
   
-const upload = multer({ storage });
+// const upload = multer({ storage });
 
-app.post('/upload', upload.single('file'), function (req, res, next) {
-    const file = req.file;
-    res.status(200).json(file.filename);
-})
+// app.post('/upload', upload.single('file'), function (req, res, next) {
+//     const file = req.file;
+//     res.status(200).json(file.filename);
+// })
 
 function validate (obj, required) {
     const errors = [];
@@ -133,7 +133,7 @@ app.get("/posts/", (req, res) => {
 
     db.collection("posts")
         .find()
-        .sort({ userName: 1 })
+        .sort({ date: -1 })
         .forEach((post) => posts.push(post))
         .then(() => {
             res.status(200).json(posts);
