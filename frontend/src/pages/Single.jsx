@@ -12,6 +12,7 @@ const Single = () => {
   const navigate = useNavigate();
   const postId = location.pathname.split("/")[2];
   const {currentUser} = useContext(AuthContext);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     const fetchData = async () => {
