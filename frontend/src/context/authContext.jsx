@@ -19,6 +19,7 @@ export const AuthContextProvider = ({ children }) => {
     const logout = async () => {
         const res = await axios.post(`${BACKEND_URL}/auth/logout`, { withCredentials: true });
         setCurrentUser(null);
+        document.cookie = "accessToken=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
         alert(res.data);
     };
 
