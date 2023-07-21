@@ -24,7 +24,7 @@ const Single = () => {
       }
     };
     fetchData();
-  }, [postId]);
+  }, [postId, BACKEND_URL]);
 
   const handleDelete = async () => {
     try {
