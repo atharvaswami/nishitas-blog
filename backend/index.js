@@ -110,9 +110,10 @@ app.post("/auth/login", (req, res) => {
                         const token = jwt.sign({ id: result._id }, "jwtkey");
                         const {password, ...other} = result;
                         res.cookie("accessToken", token, {
-                            httpOnly: true,
+                            httpOnly: false,
                             sameSite: 'none',
-                            secure: true
+                            secure: true,
+                            domain: ["https://nishitas-blog.netlify.app", "http://localhost:3000"]
                         }).status(200).json(other);
                     }
                 }
