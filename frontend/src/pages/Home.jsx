@@ -4,18 +4,19 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("/posts");
+        const res = await axios.get(`${BACKEND_URL}/posts`);
         setPosts(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
-  }, [])
+  }, [BACKEND_URL])
   
   // const posts = [
   //   {
