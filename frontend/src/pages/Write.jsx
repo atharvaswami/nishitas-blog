@@ -10,6 +10,7 @@ const Write = () => {
     const [value, setValue] = useState(state?.desc || "");
     const [title, setTitle] = useState(state?.title || "");
     const [file, setFile] = useState(null);
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
     const navigate = useNavigate();
 
@@ -40,12 +41,12 @@ const Write = () => {
         }
         try {
             const res = state
-                ? await axios.put(`/posts/${state._id}`, {
+                ? await axios.put(`${BACKEND_URL}/posts/${state._id}`, {
                       title,
                       desc: value,
                       img: imgBase64,
                   })
-                : await axios.post(`/posts/`, {
+                : await axios.post(`${BACKEND_URL}/posts/`, {
                       title,
                       desc: value,
                       img: imgBase64,

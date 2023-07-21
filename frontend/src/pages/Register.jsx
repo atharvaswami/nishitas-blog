@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const Register = () => {
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [inputs, setInputs] = useState({
     userName: "",
     email: "",
@@ -18,7 +19,7 @@ const Register = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post("/auth/register", inputs);
+      const res = await axios.post(`${BACKEND_URL}/auth/register`, inputs);
       alert(res.data);
       navigate("/login");
     } catch (err) {
