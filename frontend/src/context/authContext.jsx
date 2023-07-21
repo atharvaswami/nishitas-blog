@@ -12,7 +12,7 @@ export const AuthContextProvider = ({ children }) => {
 
     const login = async (inputs) => {
         const res = await axios.post(`${BACKEND_URL}/auth/login`, inputs, { withCredentials: true });
-        document.cookie = res.data.token;
+        document.cookie = "accessToken=" + res.data.token;
         setCurrentUser(res.data);
     };
 
