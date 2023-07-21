@@ -10,7 +10,6 @@ import fs from "fs";
 
 // init app & middleware
 const app = express();
-const BASE_URL = process.env.BASE_URL;
 const PORT = 8800;
 app.use(cors());
 app.use(express.json());
@@ -131,7 +130,7 @@ app.post("/auth/logout", (req, res) => {
 
 // posts
 // getPosts
-app.get(`${BASE_URL}/posts/`, (req, res) => {
+app.get("/posts/", (req, res) => {
     let posts = [];
 
     db.collection("posts")
