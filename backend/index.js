@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import MongoDB from "./db.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -10,6 +11,7 @@ import fs from "fs";
 // init app & middleware
 const app = express();
 const PORT = 8800;
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
