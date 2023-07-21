@@ -11,7 +11,13 @@ import fs from "fs";
 // init app & middleware
 const app = express();
 const PORT = 8800;
-app.use(cors({ credentials: true, origin: ["https://nishitas-blog.netlify.app", "http://localhost:3000"] }));
+app.use(
+    cors({
+        credentials: true,
+        origin: ["https://nishitas-blog.netlify.app", "http://localhost:3000"],
+        exposedHeaders: ["set-cookie"]
+    })
+);
 app.use(express.json());
 app.use(cookieParser());
 
