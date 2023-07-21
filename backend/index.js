@@ -115,6 +115,7 @@ app.post("/auth/login", (req, res) => {
                     } else {
                         const token = jwt.sign({ id: result._id }, "jwtkey");
                         const {password, ...other} = result;
+                        other.token = token;
                         res.cookie("accessToken", token, {
                             httpOnly: false,
                             sameSite: 'none',
