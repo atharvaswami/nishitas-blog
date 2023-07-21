@@ -119,7 +119,7 @@ app.post("/auth/login", (req, res) => {
                             httpOnly: false,
                             sameSite: 'none',
                             secure: true,
-                            domain: ["https://nishitas-blog.netlify.app", "http://localhost:3000"]
+                            domain: ["nishitas-blog.netlify.app", "localhost:3000"]
                         }).status(200).json(other);
                     }
                 }
